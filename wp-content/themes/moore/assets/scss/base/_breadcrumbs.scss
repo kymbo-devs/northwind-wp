@@ -1,0 +1,40 @@
+.wrap_breadcrumbs{
+	background-color: #ededed;
+	margin-bottom: 60px;
+	
+	
+}
+
+ul.breadcrumb{
+	margin: 0;
+	padding: 20px 0px;
+	display: inline-block;
+	list-style-type: none;
+	li{
+		color: var(--primary);
+		-webkit-hyphens: unset;
+	    -moz-hyphens: unset;
+	    -ms-hyphens: unset;
+	    hyphens: unset;
+	    display: inline-block;
+	    padding-right: 5px;
+	   	word-break: break-word;
+		a{
+			color: var(--text);
+
+			&:hover{
+				color: var(--primary);
+			}
+		}
+		.separator{
+			i{
+				font-size: 0.6em;
+				color: var(--text);
+				opacity: 0.5;
+				position: relative;
+				
+			}
+			
+		}
+	}
+}

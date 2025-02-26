@@ -1,0 +1,27 @@
+.rpwwt-widget{
+	ul{
+		li{
+			
+			.rpwwt-post-title{
+				font-family: var(--secondary-font);
+				font-weight: 600;
+				font-size: 16px;
+				line-height: 26px;
+				&:hover{
+					text-decoration: underline;
+					text-decoration-thickness: 1px;
+					text-underline-offset: 3px;
+				}
+			}
+			.rpwwt-post-date{
+				text-transform: uppercase;
+				    font-weight: 500;
+				    font-size: 14px;
+				    line-height: 21px;
+				    letter-spacing: 0.4px;
+				    margin-top: 10px;
+				    color: #727272;
+			}
+		}
+	}
+}

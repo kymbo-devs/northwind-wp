@@ -1,0 +1,70 @@
+
+---Downloaded files---
+The import files for: Demo Import were successfully downloaded!
+Initial max execution time = 300
+Files info:
+Site URL = https://deepskyblue-marten-140734.hostingersite.com
+Data file = /home/u215584044/domains/deepskyblue-marten-140734.hostingersite.com/public_html/wp-content/themes/moore/install-resource/demo-import/demo-content.xml
+Widget file = /home/u215584044/domains/deepskyblue-marten-140734.hostingersite.com/public_html/wp-content/themes/moore/install-resource/demo-import/widgets.wie
+Customizer file = /home/u215584044/domains/deepskyblue-marten-140734.hostingersite.com/public_html/wp-content/themes/moore/install-resource/demo-import/customize.dat
+Redux files:
+not defined!
+
+---ocdi/before_content_import---
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Main Sidebar : 
+
+Buscar - No Title - Imported
+Categorías - Categories - Imported
+Recent Posts With Thumbnails - No Title - Imported
+Nube de etiquetas - No Title - Imported
+
+
+
+---Importación de los ajustes del personalizador---
+¡Importación de los ajustes del personalizador finalizado!
+
+---ocdi/after_import---
+

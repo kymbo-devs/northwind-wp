@@ -1,0 +1,234 @@
+.wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output
+,.wpcf7 form.failed .wpcf7-response-output, .wpcf7 form.aborted .wpcf7-response-output {
+	border-color: red;
+	color: red;
+}
+.ova-ctfrom7 {
+  // Form 1
+    .form1 {
+        display: grid;
+		justify-content: center;
+		grid-template-columns: 50% 50%;
+		grid-gap: 25px;
+		@media screen and (max-width: 767px) {
+			grid-template-columns: 100%;
+			grid-gap: 20px;
+		}
+		input[type="text"], input[type="tel"] {
+			transition: all .3s ease;
+			width: 100%;
+			padding: 17px 25px;
+			border-radius: 0;
+			outline: none;
+            border-color: #dedede;
+            font-size: 14px;
+			text-transform: uppercase;
+			background-color: #fff;
+            font-family: var(--primary-font);
+            color: #2f2f2f;
+            font-weight: 500;
+			line-height: 21px;
+			&::placeholder {
+                font-weight: 500;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-family: var(--primary-font);
+                color: #828282;
+				line-height: 21px;
+			}
+			&:focus {
+				transition: all .3s ease;
+                font-weight: 500;
+                font-size: 14px;
+				border-color:#2f2f2f;
+                text-transform: uppercase;
+                font-family: var(--primary-font);
+                color: #2f2f2f;
+				line-height: 21px;
+			}
+		}
+
+        .accept-terms {
+            width: 100%;
+            text-align: center;
+            grid-column-start: 1;
+			grid-column-end: 3;
+            @media screen and (max-width: 767px) {
+				grid-column-start: unset;
+			    grid-column-end: unset ;
+			}
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text);
+            font-weight: 400;
+            span[class="highlight"] {
+               font-weight: 500;
+               text-transform: capitalize;
+            }
+			label {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				span[class="wpcf7-list-item-label"] {
+					padding-left: 5px;
+				}
+			}
+        }
+       
+		.ova-submit {
+			text-align: center;
+			grid-column-start: 1;
+			grid-column-end: 3;
+            padding-top: 30px;
+			@media screen and (max-width: 767px) {
+				grid-column-start: unset;
+			    grid-column-end: unset ;
+			}
+			input[type="submit"] {
+				width: 187px;
+                padding: 15px 35px;
+				border-radius: 28px;
+                font-family: var(--primary-font);
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 21px;
+				text-transform: uppercase;
+				color: #fafafa;
+				border-color: #fff;
+				-moz-transition: all .3s ease;
+				-webkit-transition: all .3s ease;
+				transition: all .3s ease;
+				&:hover {
+					border-color: #000;
+					background-color: #fff;
+					color: var(--primary);
+					transition: all .3s ease;
+				}
+			}
+			.wpcf7-spinner {
+				position: absolute;
+			}	
+		}
+        .ajax-loader {
+            margin: 0 0 0 -24px;
+        }
+	}
+ // Form 2
+    .form2 {
+        display: grid;
+		justify-content: center;
+		grid-template-columns: 50% 50%;
+		grid-gap: 25px;
+		@media screen and (max-width: 767px) {
+			grid-template-columns: 100%;
+			grid-gap: 20px;
+		}
+		input[type="text"], input[type="tel"], textarea {
+			transition: all .3s ease;
+			width: 100%;
+			padding: 17px 25px;
+			outline: none;
+			border-radius: 0;
+			background-color: #fff;
+            border-color: #dedede;
+			text-transform: uppercase;
+            font-family: var(--primary-font);
+            font-size: 14px;
+            color: #2f2f2f;
+            font-weight: 500;
+			line-height: 21px;
+			&::placeholder {
+                font-weight: 500;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-family: var(--primary-font);
+                color: #828282;
+				line-height: 21px;
+			}
+			&:focus {
+				transition: all .3s ease;
+                font-weight: 500;
+                font-size: 14px;
+				border-color:#2f2f2f;
+                text-transform: uppercase;
+                font-family: var(--primary-font);
+                color: #2f2f2f;
+				line-height: 21px;
+			}
+		}
+        .message-info {
+            grid-column-start: 1;
+			grid-column-end: 3;
+            @media screen and (max-width: 767px) {
+				grid-column-start: unset;
+			    grid-column-end: unset ;
+			}
+            textarea {
+                height: 200px;
+            }
+        }
+        .accept-terms {
+            width: 100%;
+            text-align: center;
+            grid-column-start: 1;
+			grid-column-end: 3;
+            @media screen and (max-width: 767px) {
+				grid-column-start: unset;
+			    grid-column-end: unset ;
+			}
+            font-size: 14px;
+            line-height: 21px;
+            color: var(--text);
+            font-weight: 400;
+            span[class="highlight"] {
+               font-weight: 500;
+               text-transform: capitalize;
+            }
+			label {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				span[class="wpcf7-list-item-label"] {
+					padding-left: 5px;
+				}
+			}
+        }
+		.ova-submit {
+			text-align: center;
+			grid-column-start: 1;
+			grid-column-end: 3;
+            padding-top: 30px;
+			@media screen and (max-width: 767px) {
+				grid-column-start: unset;
+			    grid-column-end: unset ;
+			}
+			input[type="submit"] {
+				width: 187px;
+                padding: 17px 35px;
+				border-radius: 28px;
+                font-family: var(--primary-font);
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 21px;
+				text-transform: uppercase;
+				color: #fafafa;
+				border-color: #fff;
+				-moz-transition: all .3s ease;
+				-webkit-transition: all .3s ease;
+				transition: all .3s ease;
+				&:hover {
+					transition: all .3s ease;
+					border-color: #000 ;
+					background-color: #fff;
+					color: var(--primary);
+				}
+			}
+			.wpcf7-spinner {
+				position: absolute;
+			}	
+		}
+        .ajax-loader {
+            margin: 0 0 0 -24px;
+        }
+	}
+}

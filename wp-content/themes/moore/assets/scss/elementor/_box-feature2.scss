@@ -1,0 +1,107 @@
+.ova-box-feature2 {
+    .img {
+        position: relative;
+        overflow: hidden;
+        .box-feature2-img {
+            vertical-align: middle;
+            width: 100%;
+            transition: all .3s ease;      
+        }
+        .button {
+            transition: all .3s ease;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            left: 50%;
+            top: 60%;
+            width: fit-content;
+            transform: translate(-50%, -50%);
+            border-radius: 28px;
+            background-color: #fff;
+            cursor: pointer;
+            .text {
+               margin: 0;
+               font-size: 14px;
+               font-weight: 500;
+               padding: 10px 35px;
+               text-transform: uppercase;
+               color: var(--heading);
+            }
+        }
+        &:hover {
+            .box-feature2-img {
+                transition: all .3s ease;
+                transform: scale(1.2,1.2);
+                -webkit-transform: scale(1.2,1.2);
+                -moz-transform: scale(1.2,1.2);
+                -o-transform: scale(1.2,1.2);
+                -ms-transform: scale(1.2,1.2);        
+            } 
+        }
+    }
+
+    .info {
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        height: auto;
+        -moz-transition: all .4s ease;
+        -webkit-transition: all all .4s ease;
+        transition: all .4s ease;
+      
+       .title {
+           position: relative;
+           color: var(--heading);
+           margin: 0 auto;
+           width: max-content;
+           font-size: 22px;
+           font-weight: 400;
+           line-height: 33px;
+           padding-top: 33px;
+           padding-bottom: 8px;
+           text-transform: uppercase;
+
+           &:after{
+            position: absolute;
+            content: '';
+            width: 0%;
+            height: 1px;
+            left: 0;
+            bottom: 12px;
+            transition: all .5s ease;
+            background-color: var(--primary);
+           }
+           
+        }
+       .sub-title {
+           margin: 0;
+           color: var(--heading);
+           font-size: 14px;
+           text-transform: uppercase;
+           font-weight: 500;
+           line-height: 21px;
+       }
+    }
+
+    &:hover {
+        .info {
+            .title {
+                color: var(--primary);
+                @include transaction( all, 0.3s, ease);
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+        .img {
+             .button {
+                transition: all .3s ease;
+                opacity: 1;
+                visibility: visible;
+                top: 50%;
+            }
+        }
+    }
+
+}
+ 

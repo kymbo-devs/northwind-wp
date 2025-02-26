@@ -1,0 +1,109 @@
+.ova-testimonial{
+	/*.owl-carousel .owl-stage-outer {
+       	margin-right: -30px;
+       	margin-left: -30px;
+	    padding-left: 30px;
+	    padding-right: 30px;
+	    width: calc(100% + 60px);
+
+	    @media(max-width: 1290px){
+	    	margin-right: 0px;
+	    	margin-left: 0px;
+	    	padding-left: 0px;
+		    padding-right: 0px;
+		    width: 100%;
+	    }
+	}*/
+	.slide-testimonials{
+		.owl-item {
+			.item {
+				.client_info {
+					width: 100%;
+					position: relative;
+					.info {
+						padding-right: 120px;
+						@media screen and ( max-width:1023px ){
+						   padding-right: 0;
+						}
+						 .evaluate{
+							margin: 0;
+							font-family: var(--secondary-font);
+							text-transform: uppercase;
+							font-size: 40px;
+							font-weight: 400;
+							color: var(--heading);
+							line-height: 56px;
+							padding-bottom: 40px;
+						}
+						.evaluate_description{
+							margin: 0;
+							font-family: var(--primary-font);
+							font-size: 14px;
+							font-weight: 400;
+							color: var(--text);
+							line-height: 26px;
+							padding-bottom: 45px;
+						}
+						.name-job{
+							p {
+								margin: 0;
+							}
+							.job, .name {
+                                font-size: 14px;
+								text-transform: uppercase;
+								line-height: 21px;
+								font-weight: 500;
+								color: var(--heading);
+							}
+						}
+						
+					}
+					.icon-quote{
+						position: absolute;
+						top: 5px;
+						right: 10px;
+						@media screen and ( max-width: 1023px ){
+							display: none;
+						 }
+						i{
+							display: inline-block;
+							&:before{
+								margin: 0;
+								font-size: 72px;
+								line-height: 1;
+								color: var(--heading);
+								
+							}
+						}
+					}		
+				}
+			}
+		}
+		
+		.owl-dots{
+			text-align: left;
+			margin-top: 30px;
+			.owl-dot{
+				outline: none;
+				span{
+					width: 10px;
+					height: 10px;
+					margin: 5px;
+					background-color: var(--heading);
+					display: block;
+					-webkit-backface-visibility: visible;
+					transition: opacity .2s ease;
+					border-radius: 30px;
+				}
+				&.active{
+					span{
+						width: 15px;
+						border-radius: 5px;
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+}

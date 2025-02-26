@@ -1,0 +1,77 @@
+.ova-box-feature {
+    padding: 60px 40px 35px 40px;
+    border: 1px solid #dedede;
+    transition: all .3s ease;
+    @media screen and (max-width: 1023px) {
+        padding: 60px 30px 25px 30px;
+    }
+    &:hover {
+        transition: all .3s ease;
+        .image {
+            img {
+                transition: all .3s ease;
+                transform: scale(1.2,1.2);
+                -webkit-transform: scale(1.2,1.2);
+                -moz-transform: scale(1.2,1.2);
+                -o-transform: scale(1.2,1.2);
+                -ms-transform: scale(1.2,1.2); 
+            }
+        }
+    }
+
+    .image {
+        overflow: hidden;
+        max-width: 195px;
+        max-height: 195px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: inline-block;
+        img {
+            transition: all .3s ease;
+            vertical-align: middle;
+        }
+    }
+
+    .info {
+        .title {
+            &:hover {
+                transition: all .3s ease;
+            }
+            transition: all .3s ease;
+            margin: 0;
+            color: var(--heading);
+            font-size: 22px;
+            line-height: 33px;
+            font-weight: 400;
+            padding-top: 55px;
+            text-transform: uppercase;
+        }
+    
+        .description {
+            &:hover {
+                transition: all .3s ease;
+            }
+            transition: all .3s ease;
+            margin: 0;
+            padding-top: 15px;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 26px;
+        }
+
+        .sub-title {
+            &:hover {
+                transition: all .3s ease;
+            }
+            transition: all .3s ease;
+            margin: 0;
+            padding-top: 25px;
+            text-transform: uppercase;
+            color: var(--heading);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 21px;
+        }
+    }
+}

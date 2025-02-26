@@ -1,0 +1,140 @@
+.ova-apartments-masonry {
+    .grid {
+
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .grid-sizer, .grid-item {
+            width: 33.3%;
+            height: auto;
+        }
+
+        .grid-item {
+            float: left;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-bottom: 20px;
+
+            .apartments {
+                position: relative;
+                overflow: hidden;
+                img {
+                    transition: all .3s ease;
+                    display: block;
+                    width: 100%;
+                }
+
+                .apartments-container {
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    cursor: pointer;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(180deg, rgba(47, 47, 47, 0) 50%, #2F2F2F 100%);
+                        -webkit-transition: all .3s ease;
+                        -moz-transition: all .3s ease;
+                        -o-transition: all .3s ease;
+                        transition: all .3s ease;
+                        opacity: 1;
+                    }
+
+                    .content {
+                        position: absolute;
+                        width: 100%;
+                        bottom: 32px;
+                        -webkit-transition: all .3s ease;
+                        -moz-transition: all .3s ease;
+                        -o-transition: all .3s ease;
+                        transition: all .3s ease;
+
+                        .title {
+                            text-align: center;
+                            margin: 0 auto;
+                            font-size: 22px;
+                            line-height: 33px;
+                            font-weight: 400;
+                            text-transform: uppercase;
+                            color: #fafafa;
+                            position: relative;
+                            width: fit-content;
+                            &:before{
+                                position: absolute;
+                                content: '';
+                                width: 0%;
+                                height: 1px;
+                                left: 0;
+                                bottom: 0;
+                                transition: all 500ms ease;
+                                background-color: #fafafa;
+                            }
+                        }
+
+                        .sub-title {
+                            text-align: center;
+                            margin: 0;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 21px;
+                            text-transform: uppercase;
+                            color: #fafafa;
+                            padding-top: 5px;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .apartments {
+                    .apartments-container {
+                        &:before {
+                            opacity: .8;
+                        }
+                        .title {
+                             &:before {
+                                 width: 100%;
+                            }
+                        }
+                    }
+                    img {
+                        transition: all .3s ease;
+                        transform: scale(1.2,1.2);
+                        -webkit-transform: scale(1.2,1.2);
+                        -moz-transform: scale(1.2,1.2);
+                        -o-transform: scale(1.2,1.2);
+                        -ms-transform: scale(1.2,1.2); 
+                    }
+                }
+            }
+        }
+
+        .grid-item-fisrt {
+            width: 33.3%;
+            height: auto;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .grid-item {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .grid-item {
+                width: 100%;
+            }
+        }
+    }
+}
+

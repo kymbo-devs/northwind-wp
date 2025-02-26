@@ -1,0 +1,44 @@
+.page_404{
+	text-align: center;
+	margin: 0 auto;
+    padding: 60px 0px;
+
+	.text404{
+		font-size: 200px;
+		font-weight: 500;
+		margin: 0px 0px 40px 0px;
+    	line-height: 1em;
+    	@media(max-width: 767px){
+    		font-size: 150px;
+    	}
+	}
+	.message{
+		text-transform: uppercase;
+		font-family: var(--secondary-font);
+		font-size: 40px;
+		font-weight: 500;
+		width: 80%;
+		margin: 30px auto 40px auto;
+		line-height: 1.1em;
+		margin-top: 0;
+		padding-top: 0;
+		@media(max-width: 767px){
+    		font-size: 30px;
+    	}
+	}
+	.btn{
+		background-color: #F2F3F5;
+	    font-size: 14px;
+	    font-weight: 500;
+	    color: #2F2F2F;
+	    text-transform: uppercase;
+	    padding: 20px 30px;
+	    border-radius: 50px;
+	    @include transaction( all, 0.3s, linear );
+	    &:hover{
+	    	background-color: #2F2F2F;
+	    	color: #fff;
+	    	@include transaction( all, 0.3s, linear );
+	    }
+	}
+}

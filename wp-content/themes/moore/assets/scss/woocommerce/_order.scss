@@ -1,0 +1,32 @@
+.woocommerce{
+	
+}
+
+.woocommerce .woocommerce-cart-form table.shop_table tbody tr td.actions .button{
+	opacity: 1;
+}
+
+.woocommerce-checkout table.shop_table tbody td{
+	border-top: none;
+	a{
+		border: none;
+	}
+}
+.woocommerce-checkout table.shop_table{
+	border: none;
+}
+
+
+.woocommerce-checkout .woocommerce-checkout-review-order-table{
+	tbody{
+		tr{
+			border-top: 1px solid #e8e8e8;
+		}	
+	}
+	tfoot{
+		tr{
+			border-top: 1px solid #e8e8e8;
+		}	
+	}
+	
+}

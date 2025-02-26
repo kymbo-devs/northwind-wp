@@ -1,0 +1,127 @@
+
+
+.woocommerce-account{
+	.page-title{
+		display: none;
+	}
+}
+
+.woocommerce{
+	>h2{
+		display: none;
+	}
+
+	
+	.woocommerce-message{
+		a.button{
+			font-size: 18px;
+			color: #fff;
+			font-weight: 600;
+			height: 45px;
+			line-height: 45px;
+			padding: 0 20px;
+			background-color: #333;
+			&:hover{
+				background: #06163A;
+			}
+		}
+	}
+	
+	
+
+	
+}
+
+
+
+
+.woocommerce a.add_to_cart_button:after,
+.woocommerce a.add_to_cart_button.loading:after{
+	position: absolute;
+	top: 0;
+    right: 10px;
+    
+}
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea{
+	border: 1px solid #e8e8e8;
+	border-radius: 10px;
+}
+.woocommerce-checkout form.checkout_coupon .button{
+	border-radius: 10px;
+}
+
+
+
+.woocommerce  .woocommerce-customer-details{
+	address{
+		border: 1px solid #e8e8e8;
+	}
+}
+
+/*Coupon*/
+.woocommerce form.woocommerce-form-coupon .form-row{
+	input{
+		&.input-text{
+			height: 60px;
+		    line-height: 60px;
+		    padding: 0 25px;
+		    border-radius: 4px;	
+		}
+		
+	}
+	.button{
+		font-size: 16px;
+	    color: #fff;
+	    font-weight: 600;
+	    height: 60px;
+	    line-height: 60px;
+	    padding: 0 25px;
+	    border-radius: 4px;
+	    background: #333;
+	}
+}
+
+/*Message*/
+.woocommerce-message,
+.woocommerce-info{
+	border-top-color: var(--primary);
+}
+.woocommerce-message::before{
+	color: var(--primary);	
+}
+.woocommerce-info{
+	&::before{
+		color: var(--primary);
+	}
+}
+
+/*Select2*/
+.woocommerce .select2-container .select2-selection--single .select2-selection__arrow{
+
+	background-image: url(./assets/img/base/select-arrow.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+
+    b{
+    	display: none;
+    }
+}
+
+
+form.checkout_coupon{
+	.form-row{
+		width: 49%
+	}
+}
+
+@media(max-width: 767px){
+	.woocommerce ul.order_details li{
+		margin-bottom: 15px;
+	}
+}
+.woocommerce .woocommerce-checkout #payment ul.wc_payment_methods li .payment_box p{
+	font-size: 16px!important;
+}
+
+

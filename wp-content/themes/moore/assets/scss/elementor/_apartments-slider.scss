@@ -1,0 +1,172 @@
+.ova-apartments-slider {
+    .owl-stage-outer {
+    	padding-bottom: 90px ;
+    }
+	.slide-apartments-slider {
+		position: relative;
+		&:hover {
+			.owl-nav {
+				opacity: 1;
+		        transition: all .3s ease;
+			}
+	    }
+		.owl-item {
+			transition: all .3s ease;
+           .item {
+				position: relative;
+				&:hover {
+					.client_info {
+						&:before {
+							opacity: .9;
+							transition: all .3s ease;
+						}
+					}
+					.apartments-slider-img {
+						img {
+							transition: all .3s ease;
+							transform: scale(1.2,1.2);
+							-webkit-transform: scale(1.2,1.2);
+							-moz-transform: scale(1.2,1.2);
+							-o-transform: scale(1.2,1.2);
+							-ms-transform: scale(1.2,1.2);
+						}
+					}
+				}
+				.apartments-slider-img {
+					overflow: hidden;
+					img {
+						transition: all .3s ease;
+						display: block;
+						width: 100%;
+						height: calc( 100vh - 150px);
+						object-fit: cover;
+						object-position: center;
+					}	
+				}
+           	
+		      	.client_info {
+		      		position: absolute;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(180deg, rgba(47, 47, 47, 0) 50%, #2F2F2F 100%);
+                        -webkit-transition: all .3s ease;
+                        -moz-transition: all .3s ease;
+                        -o-transition: all .3s ease;
+                        transition: all .3s ease;
+                        opacity: 1;
+                    }
+
+		      		.info {
+		      			    position: absolute;
+		                    width: 100%;
+		                    padding-left: 12%;
+		                    padding-right: 12%;
+		                    bottom: -90px;
+		                   -webkit-transition: all .3s ease;
+		                    -moz-transition: all .3s ease;
+		                   -o-transition: all .3s ease;
+		                    transition: all .3s ease;
+							@media screen and (max-width: 530px ){
+								padding-left: 30px;
+								padding-right: 30px;
+							}	
+		      			.title {
+		                    text-align: center;
+		                    margin: 0;
+		                    font-size: 40px;
+		                    line-height: 56px;
+		                    padding-bottom: 5px;
+		                    font-weight: 400;
+		                    text-transform: uppercase;
+		                    color: #fafafa;
+		      			}
+		      			.sub-title {
+		      				text-align: center;
+		                    margin: 0;
+		                    font-size: 14px;
+		                    padding-top: 5px;
+		                    font-weight: 500;
+		                    line-height: 21px;
+		                    text-transform: uppercase;
+		                    color: #fafafa;
+		      			}
+		      		}
+		      	}
+	       }
+
+		}
+		.owl-dots{
+			text-align: center;
+			margin-top: 30px;
+			.owl-dot{
+				outline: none;
+				span{
+					width: 10px;
+					height: 10px;
+					margin: 5px;
+					background-color: var(--heading);
+					display: block;
+					-webkit-backface-visibility: visible;
+					transition: opacity .2s ease;
+					border-radius: 30px;
+				}
+				&.active{
+					span{
+						width: 15px;
+						border-radius: 5px;
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		.owl-nav {
+			transition: all .3s ease; 
+			opacity: 0;
+			.owl-prev, .owl-next {
+				position: absolute;
+			    top: 43.5%;
+				max-width: 50px;
+				min-height: 50px;
+				width: 100%;
+				background-color: rgba(0,0,0,0.3);
+				border-radius: 50%;
+				transition: all .3s ease;
+				font-size: 22px;
+				color: #fff;
+				i{
+					-webkit-backface-visibility: visible;
+				}
+			}
+			.owl-prev {
+			    left: -15px;
+				&:hover {
+					background-color: rgba(0,0,0,0.7);
+			    }
+			    @media screen and (max-width:1024px ){
+					left: 10px;
+				}	
+			}
+			.owl-next {
+				right: -15px;
+				&:hover {
+					background-color: rgba(0,0,0,0.7);
+			    }
+				@media screen and (max-width:1024px ){
+					right: 10px;
+				}	
+			}
+		}
+	}
+
+}

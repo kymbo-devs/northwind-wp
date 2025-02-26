@@ -1,0 +1,81 @@
+.ova-gallery-category {
+    transition: all .3s ease;
+    &:hover {
+        transition: all .3s ease;
+        .icon {
+            i {
+                transition: all .3s ease;
+                transform: scale(1.2,1.2);
+                -webkit-transform: scale(1.2,1.2);
+                -moz-transform: scale(1.2,1.2);
+                -o-transform: scale(1.2,1.2);
+                -ms-transform: scale(1.2,1.2); 
+            }
+        }
+    }
+
+    .image {
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+    }
+
+    .align-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -36px;
+        .icon {
+            transition: all .3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 72px;
+            width: 72px;
+            border-radius: 50%;
+            background-color: var(--heading);
+            position: relative;
+            overflow: hidden;
+            &:hover {
+                transition: all .3s ease;
+            }
+            i {
+                transition: all .3s ease;
+                font-size: 32px;
+                color: #fff ;
+            }
+        }
+    }
+    
+    .info {
+        padding: 20px;
+        .title {
+            &:hover {
+                transition: all .3s ease;
+            }
+            transition: all .3s ease;
+            margin: 0;
+            color: var(--heading);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: auto;
+            text-transform: uppercase;
+        }
+    
+        .description {
+            &:hover {
+                transition: all .3s ease;
+            }
+            transition: all .3s ease;
+            margin: 0;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 26px;
+        }
+    }
+}

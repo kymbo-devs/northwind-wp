@@ -1,0 +1,85 @@
+.ova-progress {
+    &:hover {
+        .image {
+            .icon {
+                transition: all .3s ease;
+                opacity: 1;
+                visibility: visible;
+                top: 50%;
+            }
+        }
+    }
+    .image {
+        position: relative;
+        img {
+            width: 100%;
+            vertical-align: middle;
+            transition: all .3s ease;
+        }
+        .icon {
+            transition: all .3s ease;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i {
+                transition: all .3s ease;
+                font-size: 16px;
+                color: var(--heading);
+            }
+        }
+    }
+    .info {
+        .day {
+            &:hover {
+                transition: all .3s ease;
+            }
+            transition: all .3s ease;
+            margin: 0;
+            padding-top: 25px;
+            font-family: var(--secondary-font);
+            color: var(--heading);
+            font-size: 56px;
+            font-weight: 400;
+            line-height: 72px;
+            text-transform: uppercase;
+        }
+        .month {
+            &:hover {
+                transition: all .3s ease;
+            }
+            transition: all .3s ease;
+            margin: 0;
+            padding-top: 20px;
+            font-family: var(--secondary-font);
+            color: var(--heading);
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 33px;
+            text-transform: uppercase;
+        }
+        .year {
+            &:hover {
+                transition: all .3s ease;
+            }
+            transition: all .3s ease;
+            margin: 0;
+            padding-top: 10px;
+            color: var(--heading);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.2em;
+            text-transform: uppercase;
+        }
+    }
+}

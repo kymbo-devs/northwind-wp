@@ -1,0 +1,68 @@
+.ova-contact-info{
+
+	display: flex;
+
+	.icon{
+		color: #fff;
+		font-size: 30px;
+		margin-right: 10px;
+		margin-top: 5px;
+	}
+
+	.contact{
+
+		.label{
+			font-size: 24px;
+			margin: 0 0px 10px 0px;
+			padding: 0;
+			font-weight: 600;
+			line-height: 1.2em;
+		}
+
+		.info{
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+
+			.item{
+				color: var(--heading);
+				@media screen and ( max-width: 767px) {
+					a {
+						font-size: 25px;
+					}
+				}
+				a{
+					font-family: var(--secondary-font);
+					font-size: 40px;
+					line-height: 56px;
+					font-weight: 400;
+					text-transform: uppercase;
+					color: var(--heading);
+					-webkit-transition: all .3s ease;
+					-o-transition: all .3s ease;
+					transition: all .3s ease;
+					position: relative;
+
+					&:before{
+						position: absolute;
+					    content: '';
+					    width: 0%;
+					    height: 1px;
+					    left: 0px;
+					    bottom: 0px;
+					    transition: all 500ms ease;
+					    background-color: var(--primary);
+					}
+
+					&:hover{
+						color: var(--primary);
+						&:before{
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+
+	}
+}

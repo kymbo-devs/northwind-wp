@@ -1,0 +1,43 @@
+.ova-box-info {
+    border: 1px solid #dedede;
+    padding: 45px 58px 25px 58px ;
+    transition: all .3s ease;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+        transition: all .3s ease;
+        .icon {
+            transition: all .3s ease;
+            transform: scale(1.2,1.2);
+            -webkit-transform: scale(1.2,1.2);
+            -moz-transform: scale(1.2,1.2);
+            -o-transform: scale(1.2,1.2);
+            -ms-transform: scale(1.2,1.2); 
+        }
+    }
+    .icon {
+        transition: all .3s ease;
+        &:hover {
+            transition: all .3s ease;
+        }
+        i {
+            transition: all .3s ease;
+            font-size: 40px;
+            color: var(--heading);
+        }
+    }
+    .title {
+        &:hover {
+            transition: all .3s ease;
+        }
+        transition: all .3s ease;
+        margin: 0;
+        padding-top: 35px;
+        font-family: var(--primary-font);
+        color: var(--heading);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 21px;
+        text-transform: uppercase;
+    }
+}
