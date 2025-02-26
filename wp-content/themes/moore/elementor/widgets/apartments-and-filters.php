@@ -507,305 +507,193 @@ class Moore_Elementor_Apartments_And_Filters extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings();
 
-		$text_button    = $settings['text_button'] ; 
-	    $posts_per_page = $settings['posts_per_page'];
-		// get range price, area
+		$text_button    = $settings['text_button']; 
+		$posts_per_page = $settings['posts_per_page'];
+
+		// Get range price, area
 		$range_area_min = $settings['range_area_min'];
 		$range_area_max = $settings['range_area_max'];
 		$range_price_min = $settings['range_price_min'];
 		$range_price_max = $settings['range_price_max'];
-        // get list type room
-        $type_args = array(
-			'taxonomy' => 'category',
-			'orderby' => 'name',
-			'order'   => 'ASC'
-		);
-		$type_room 		= get_categories( $type_args );
-		$type_room_data = array();
 
-		if ( $type_room ) {
-			foreach ( $type_room as $type ) {
-				$type_room_data[$type->slug] = $type->cat_name;
+		// Get list locations
+		$location_args = array(
+			'post_type' => 'ova_apartments',
+			'posts_per_page' => -1
+		);
+		$locations = get_posts($location_args);
+		$unique_locations = array();
+
+		foreach($locations as $apartment) {
+			$location = get_post_meta($apartment->ID, 'ova_apartment_location', true);
+			if(!empty($location) && !in_array($location, $unique_locations)) {
+				$unique_locations[] = $location;
 			}
-		} else {
-			$type_room_data["No content Category found"] = 0;
 		}
 
-        // get list feature room
+		// Get list regimens
+		$regimens = array();
+		$all_apartments = get_posts($location_args);
+		foreach($all_apartments as $apartment) {
+			$regimen = get_post_meta($apartment->ID, 'ova_apartment_regimen', true);
+			if(!empty($regimen) && !in_array($regimen, $regimens)) {
+				$regimens[] = $regimen;
+			}
+		}
+
+		// Get features
 		$features_args = array(
 			'taxonomy' => 'features_apartment',
 			'orderby' => 'name',
 			'order'   => 'ASC'
 		);
-		$features_room 		= get_categories( $features_args );
-		$features_room_data = array();
+		$features = get_categories($features_args);
 
-		if ( $features_room ) {
-			foreach ( $features_room as $features ) {
-				$features_room_data[$features->slug] = $features->cat_name;
-			}
-		} else {
-			$features_room_data[''] = esc_html__('Features Room Not Found', 'moore');
-		}
-
-        // args
+		// Query args
 		$args = array(
 			'post_type' => 'ova_apartments',
 			'posts_per_page' => $posts_per_page,
-			'orderby'       => 'name',
-			'order'         => 'ASC'
+			'orderby' => 'name',
+			'order' => 'ASC'
 		);
-		
-		if ( ( 'all' != $features_room_data ) && ( 'all' != $type_room_data ) ) {
+
+		// Add category filter if we're on a category page
+		if(is_tax('category')) {
+			$current_category = get_queried_object();
 			$args['tax_query'] = array(
-				'relation' => 'AND',
 				array(
 					'taxonomy' => 'category',
-					'field'    => 'slug',
-					'terms'    => $type_room_data,
-				),
-				array(
-					'taxonomy' => 'features_apartment',
-					'field'    => 'slug',
-					'terms'    => $features_room_data,
-				),
+					'field' => 'term_id',
+					'terms' => $current_category->term_id
+				)
 			);
-		};
+		}
 
-		$rooms = new \WP_Query( $args );
-        $number_results_found = $rooms->found_posts;
+		$apartments = new \WP_Query($args);
+		$number_results_found = $apartments->found_posts;
+		?>
 
-		 ?>
+		<div class="ova-rooms-filter" data-range_area_min="<?php echo esc_attr($range_area_min); ?>" 
+			 data-range_area_max="<?php echo esc_attr($range_area_max); ?>" 
+			 data-range_price_min="<?php echo esc_attr($range_price_min); ?>" 
+			 data-range_price_max="<?php echo esc_attr($range_price_max); ?>">
 
-        <div class="ova-rooms-filter" data-range_area_min = "<?php echo esc_attr( $range_area_min ) ;?>"  data-range_area_max = "<?php echo esc_attr( $range_area_max ) ;?>" data-range_price_min = "<?php echo esc_attr( $range_price_min ) ;?>" data-range_price_max = "<?php echo esc_attr( $range_price_max ) ;?>"> 
-		  <!-- Form Filter -->
-			<form action="<?php home_url('/'); ?>"  method="post" id="rooms-filter">
-
+			<!-- Form Filter -->
+			<form action="<?php home_url('/'); ?>" method="post" id="rooms-filter">
 				<div class="select-filter">
-					<select name="type" id="type">
-					    <option value="all">
-						    <?php esc_html_e( 'Type', 'moore' ); ?>
-						</option>
-						<?php foreach ($type_room_data as $type_slug => $type_room_value) : ?>
-
-						 <option value="<?php echo esc_html( $type_slug ); ?>">
-						    <?php echo esc_html( $type_room_value ) ;?>
-						</option>
-
-						<?php endforeach; ?>
-					</select>
-
-					<div class="floor">
-						<span class="label-floor"><?php echo esc_html_e( 'Floor', 'moore' );?></span>
-						<div class="floor-number">
-							<input type="number" min = "0" max="50" placeholder ="1" name="floor-from" id="from" value="1">
-							<span class="label-to"><?php echo esc_html_e( 'to', 'moore' );?></span>
-							<input type="number"  min = "50" max="100" placeholder ="20" name="floor-to" id="to" value="20">
-						</div>
-					</div>
-
-					<select name="rooms" id="rooms">
-					    <option value="all">
-							<?php esc_html_e( 'Rooms', 'moore' ); ?> 
-						</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4+</option>
-					</select>
-
-					<select name="features" id="features" >
-					    <option value="all">
-							<?php esc_html_e( 'Features', 'moore' ); ?> 
-						</option>
-						<?php foreach ($features_room_data as $features_slug => $features_room_value) : ?>
-							<option value="<?php echo esc_html( $features_slug ); ?>">
-							<?php echo esc_html( $features_room_value ) ;?>
+					<select name="regimen" id="regimen">
+						<option value="all"><?php esc_html_e('Régimen', 'moore'); ?></option>
+						<?php foreach($regimens as $regimen): ?>
+							<option value="<?php echo esc_attr($regimen); ?>">
+								<?php echo esc_html($regimen); ?>
 							</option>
 						<?php endforeach; ?>
-					</select>  
+					</select>
+
+					<select name="location" id="location">
+						<option value="all"><?php esc_html_e('Localización', 'moore'); ?></option>
+						<?php foreach($unique_locations as $location): ?>
+							<option value="<?php echo esc_attr($location); ?>">
+								<?php echo esc_html($location); ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+
+					<select name="features" id="features">
+						<option value="all"><?php esc_html_e('Features', 'moore'); ?></option>
+						<?php foreach($features as $feature): ?>
+							<option value="<?php echo esc_attr($feature->slug); ?>">
+								<?php echo esc_html($feature->name); ?>
+							</option>
+						<?php endforeach; ?>
+					</select>
 				</div>
-				
-                <div class="option-filter">
+
+				<div class="option-filter">
 					<div class="area-value-filter">
-
-						 <div id="slider-range-area">
-							<input type="hidden" name="min-value-area"  id="range-area-start">
-							<input type="hidden" name="max-value-area"  id="range-area-end">
+						<div id="slider-range-area">
+							<input type="hidden" name="min-value-area" id="range-area-start">
+							<input type="hidden" name="max-value-area" id="range-area-end">
 						</div>
 						<p>
-							 <?php esc_html_e( 'Area', 'moore' ); ?>
-							 ( <?php esc_html_e( 'M', 'moore' ); ?><sub>2</sub> )
-					    </p>
-
-					</div>
-
-                    <div class="clear-filter" id="clear-filter">
-					    <input type="button" value="Clear Filter">
-					</div>
-
-				    <div class="price-value-filter">
-
-						<div id="slider-range-price">
-							<input type="hidden" name="min-value-price" id="range-price-start">
-							<input type="hidden" name="max-value-price"  id="range-price-end">
-						</div>
-						<p>
-						   <?php esc_html_e( 'Price ( M )', 'moore' ); ?>	
-					    </p>
-					</div>
-				</div>
-
-			</form>
-            <!-- heading results found -->
-				<h4 class="results-found">
-					<span class="number-results-found"></span>
-					<?php esc_html_e( ' Result Found', 'moore' ); ?> 
-				</h4>
-			<!-- end heading results -->
-			<div class="results-filter">
-
-				<!-- the rooms loop -->
-				<?php if ( $rooms->have_posts() ) : ?>
-					<?php while ( $rooms->have_posts() ) : $rooms->the_post(); 
-						$room_id   = get_the_ID();
-						$mooredate = get_post_meta( $room_id, 'ova_mooredate', true );
-						$room_date = date('d/m', strtotime( $mooredate ));
-						$square    = get_post_meta( $room_id, 'ova_moorearea', true ).' ';
-						$bedrooms  = get_post_meta( $room_id, 'ova_moorebedrooms', true );
-						$floor     = get_post_meta( $room_id, 'ova_moorefloor', true );
-						// *****************
-						$total_price  = get_post_meta( $room_id, 'ova_mooretotal', true );
-						// *****************
-						$icon_group   = get_post_meta( $room_id, 'wiki_test_repeat_group', true );
-						// ******************
-						$url_image    = get_the_post_thumbnail_url( $room_id );
-						// for popup
-						$url_image_popup = get_post_meta( $room_id, 'ova_mooreimage_popup', true );
-						$url_send_request = get_post_meta( $room_id, 'ova_mooreurl_send_request', true );
-						$url_file_layout = get_post_meta( $room_id, 'ova_moorefile_layout', true );
-						$path = str_replace( site_url('/'), ABSPATH, esc_url( $url_file_layout) );
-					    $size_file_layout = file_exists( $path ) ? size_format( filesize( $path ), 1 ) : '';
-					?>
-						<!-- div room -->
-						
-						<div class="ova-box-feature2">
-
-							<div class="img">
-								<img src="<?php echo esc_url( $url );?>" class="box-feature2-img" alt="<?php echo esc_attr( $alt ); ?>">
-
-								<?php if ($show_view_all ==='yes') : ?>
-									<?php if ( !empty ($text)) : ?>
-
-									<div class="button">
-										<p class="text"><?php echo esc_html($text); ?></p>
-									</div>
-
-									<?php endif; ?>
-								<?php endif; ?>
-
-							</div>
-						
-							<div class="info">
-
-								<?php if ( !empty ($title)) : ?>
-									<h2 class="title">
-											<?php echo esc_html($title); ?>
-									</h2>
-								<?php endif; ?>
-								
-								<?php if ( !empty ($subtitle)) : ?>
-									<p  class="sub-title">
-										<?php echo esc_html($subtitle) ; ?>
-									</p>
-								<?php endif; ?>
-
-							</div>
-
-						</div>
-						
-					<?php endwhile; ?>
-
-					<?php wp_reset_postdata(); ?>
-				<?php endif; ?>
-				<!-- end of the loop -->	
-	
-			</div>
-
-		     <!-- rigth popup on click div room -->
-					<div class="right">
-						<div class="content">
-							<div class="btn">
-								<button class="room-toggle">
-									<i class="ovaicon-cancel"></i>
-								</button>
-							</div>	
-							<div class="room-popup">
-								<p class="total_price_popup"></p>
-								<h2 class="title-popup"></h2>
-								<div class="date">
-									<span>
-									    <?php echo esc_html_e( 'No:','moore');?>
-									</span>
-									<p class="date-popup">
-									   
-							        </p>
-							    </div>
-			
-								<div class="square-bed-floor">
-									<p class="square-popup"></p>
-									<p class="bedrooms-popup"></p>
-									<p class="floor-popup"></p>
-								</div>
-
-								<div class="icon_group_popup"></div>
-
-								<img src="#" alt="<?php echo the_title();?>" class="room-image-popup">
-
-								<div class="download">
-
-									<a href="#" rel="nofollow" class="url-send-request-popup">
-										<div class="btn-send-request">
-											<?php echo esc_html_e('Send Request','moore'); ?>
-										</div>
-									</a>
-									<a href="<?php echo esc_url( $url_file_layout ); ?>" rel="nofollow" target="_blank" class="url-file-layout-popup">
-										<span class="info-file">
-											<?php echo esc_html_e('Download Layout','moore');?>
-										</span>
-									</a> 
-									<div class="info-file">
-										<?php if( $size_file_layout ){ ?>
-											<?php echo esc_html_e('PDF','moore');?>
-											<span class="size-file-layout-popup">
-												<?php echo esc_html( $size_file_layout );?>
-											</span>
-										<?php } ?>
-								    </div>
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="site-overlay"></div>
-					</div> 
-				<!-- end rigth popup -->	
-			
-            <?php if( !empty( $text_button ) ) :?>
-					<div class="button-loadmore" data-post_per_page="<?php echo esc_attr($posts_per_page); ?>" data-paged="2" data-number_results_found="<?php echo esc_attr($number_results_found); ?>">
-						<p class="text-button">
-							<?php echo esc_html( $text_button ); ?>
+							<?php esc_html_e('Tamaño', 'moore'); ?>
+							( <?php esc_html_e('M', 'moore'); ?><sub>2</sub> )
 						</p>
 					</div>
-			<?php endif; ?>
 
-            <div class="button-loadmore-nodata">
-					<p class="text-button-nodata">
-						<?php esc_html_e( 'No Data', 'moore' ); ?> 
-					</p>
+					<div class="clear-filter" id="clear-filter">
+						<input type="button" value="Clear Filter">
+					</div>
+
+					<div class="price-value-filter">
+						<div id="slider-range-price">
+							<input type="hidden" name="min-value-price" id="range-price-start">
+							<input type="hidden" name="max-value-price" id="range-price-end">
+						</div>
+						<p>
+							<?php esc_html_e('Precio ( € )', 'moore'); ?>
+						</p>
+					</div>
+				</div>
+			</form>
+
+			<!-- Results count -->
+			<h4 class="results-found">
+				<span class="number-results-found"><?php echo esc_html($number_results_found); ?></span>
+				<?php esc_html_e(' Result Found', 'moore'); ?>
+			</h4>
+
+			<!-- Results -->
+			<div class="results-filter">
+				<?php if($apartments->have_posts()): while($apartments->have_posts()): $apartments->the_post();
+					$apartment_id = get_the_ID();
+					$title = get_the_title();
+					$area = get_post_meta($apartment_id, 'ova_apartment_tamano', true);
+					$price = get_post_meta($apartment_id, 'ova_apartment_precio', true);
+					$location = get_post_meta($apartment_id, 'ova_apartment_location', true);
+				?>
+					<div class="ova-box-feature2">
+						<div class="img">
+							<?php 
+							$gallery_ids = get_post_meta($apartment_id, 'apartment_gallery_ids', true);
+							if($gallery_ids) {
+								$first_image_id = explode(',', $gallery_ids)[0];
+								$image_url = wp_get_attachment_image_url($first_image_id, 'full');
+								if($image_url) {
+									echo '<img src="'.esc_url($image_url).'" class="box-feature2-img" alt="'.esc_attr($title).'">';
+								}
+							}
+							?>
+						</div>
+
+						<div class="info">
+							<h2 class="title"><?php echo esc_html($title); ?></h2>
+							<p class="sub-title">
+								<?php echo esc_html($area); ?> m² | <?php echo esc_html($price); ?> € | <?php echo esc_html($location); ?>
+							</p>
+						</div>
+					</div>
+				<?php 
+				endwhile;
+				wp_reset_postdata();
+				endif; 
+				?>
 			</div>
 
+			<?php if(!empty($text_button)): ?>
+				<div class="button-loadmore" data-post_per_page="<?php echo esc_attr($posts_per_page); ?>" 
+					 data-paged="2" data-number_results_found="<?php echo esc_attr($number_results_found); ?>">
+					<p class="text-button">
+						<?php echo esc_html($text_button); ?>
+					</p>
+				</div>
+			<?php endif; ?>
+
+			<div class="button-loadmore-nodata">
+				<p class="text-button-nodata">
+					<?php esc_html_e('No Data', 'moore'); ?>
+				</p>
+			</div>
 		</div>
 		 	
 		<?php
