@@ -186,6 +186,25 @@ class Moore_Elementor_Apartment_Fields extends Widget_Base {
 
         // Close the container
         echo '</div>';
+
+        // 5) Add some quick inline CSS for 2 columns (adjust as needed)
+        ?>
+        <style>
+            .moore-apartment-fields-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 15px 30px; /* row gap x column gap */
+            }
+            .moore-apartment-fields-list .field-item {
+                display: flex;
+                align-items: center;
+            }
+            .moore-apartment-fields-list .field-icon {
+                margin-right: 8px;
+                font-size: 20px; /* Adjust for Dashicons or your icon size */
+            }
+        </style>
+        <?php
     }
 }
 
@@ -350,6 +369,138 @@ class Moore_Elementor_Post_Taxonomies extends Widget_Base {
     }
 
     echo '</ul>';
+
+    // Updated styles to match apartment fields with ULs
+    ?>
+    <style>
+        /* Common Widget Styles */
+        .moore-apartment-fields-title,
+        .moore-taxonomy-fields-title {
+            color: #2c3338;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 20px;
+            padding: 0;
+            line-height: 1.3;
+        }
+
+        /* Apartment Fields Grid */
+        .moore-apartment-fields-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px 30px;
+            margin-bottom: 30px;
+        }
+
+        .moore-apartment-fields-list .field-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #fff;
+            border: 1px solid #dcdcde;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .moore-apartment-fields-list .field-item:hover {
+            border-color: #2271b1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .moore-apartment-fields-list .field-icon {
+            margin-right: 12px;
+            color: #606a73;
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .moore-apartment-fields-list .field-text {
+            color: #50575e;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .moore-apartment-fields-list .field-text strong {
+            color: #2c3338;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        /* Taxonomy Fields Styling */
+        .moore-taxonomy-fields-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .taxonomy-fields-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 15px 30px;
+            margin: 0 0 30px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .taxonomy-fields-grid .field-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: #fff;
+            border: 1px solid #dcdcde;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .taxonomy-fields-grid .field-item:hover {
+            border-color: #2271b1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .taxonomy-fields-grid .field-icon {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .taxonomy-fields-grid .field-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .taxonomy-fields-grid .field-icon .fa {
+            color: #606a73;
+            font-size: 18px;
+        }
+
+        .taxonomy-fields-grid .field-text {
+            color: #50575e;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 767px) {
+            .moore-apartment-fields-list,
+            .taxonomy-fields-grid {
+                grid-template-columns: 1fr;
+                grid-gap: 15px;
+            }
+            
+            .moore-apartment-fields-title,
+            .moore-taxonomy-fields-title {
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+    <?php
 	}
 }
 
