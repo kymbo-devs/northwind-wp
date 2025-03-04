@@ -231,12 +231,6 @@ class Moore_Elementor_Apartments_And_Filters extends Widget_Base
             data-range_area_max="<?php echo esc_attr($range_area_max); ?>"
             data-range_price_min="0"
             data-range_price_max="<?php echo esc_attr($range_price_max); ?>">
-			<p>
-				area: <?php echo esc_html($area_name); ?>				
-			</p>
-			<p>
-				price: <?php echo esc_html($price_name); ?>
-			</p>
             <!-- Form Filter -->
             <form action="<?php echo esc_url(home_url('/')); ?>" method="post" id="rooms-filter">
 				<?php if ( is_tax('category') || is_category() ): ?>
