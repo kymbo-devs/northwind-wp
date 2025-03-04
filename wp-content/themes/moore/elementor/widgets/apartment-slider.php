@@ -227,6 +227,296 @@ class Moore_Elementor_Apartment_Slider extends Widget_Base {
 				endif; 
 				?>
 			</div>
+			<style>
+				.ova-apartments-slider {
+				position: relative;
+				}
+
+				.ova-apartments-slider .owl-stage-outer {
+				padding-bottom: 90px;
+				}
+
+				/* First .slide-apartments-slider block */
+				.ova-apartments-slider .slide-apartments-slider {
+				position: relative;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider:hover .owl-nav {
+				opacity: 1;
+				transition: all 0.3s ease;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item {
+				transition: all 0.3s ease;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item {
+				position: relative;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item:hover .client_info:before {
+				opacity: 0.9;
+				transition: all 0.3s ease;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item:hover .apartments-slider-img img {
+				transition: all 0.3s ease;
+				transform: scale(1.2, 1.2);
+				-webkit-transform: scale(1.2, 1.2);
+				-moz-transform: scale(1.2, 1.2);
+				-o-transform: scale(1.2, 1.2);
+				-ms-transform: scale(1.2, 1.2);
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .apartments-slider-img {
+				overflow: hidden;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .apartments-slider-img img {
+				transition: all 0.3s ease;
+				display: block;
+				width: 100%;
+				height: calc(100vh - 150px);
+				object-fit: cover;
+				object-position: center;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info {
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(180deg, rgba(47, 47, 47, 0) 50%, #2F2F2F 100%);
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease;
+				opacity: 1;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info .info {
+				position: absolute;
+				width: 100%;
+				padding-left: 12%;
+				padding-right: 12%;
+				bottom: -90px;
+				-webkit-transition: all 0.3s ease;
+				-moz-transition: all 0.3s ease;
+				-o-transition: all 0.3s ease;
+				transition: all 0.3s ease;
+				}
+
+				@media screen and (max-width: 530px) {
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info .info {
+					padding-left: 30px;
+					padding-right: 30px;
+				}
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info .info .title {
+				text-align: center;
+				margin: 0;
+				font-size: 40px;
+				line-height: 56px;
+				padding-bottom: 5px;
+				font-weight: 400;
+				text-transform: uppercase;
+				color: #fafafa;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info .info .sub-title {
+				text-align: center;
+				margin: 0;
+				font-size: 14px;
+				padding-top: 5px;
+				font-weight: 500;
+				line-height: 21px;
+				text-transform: uppercase;
+				color: #fafafa;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-dots {
+				text-align: center;
+				margin-top: 30px;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-dots .owl-dot {
+				outline: none;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-dots .owl-dot span {
+				width: 10px;
+				height: 10px;
+				margin: 5px;
+				background-color: var(--heading);
+				display: block;
+				-webkit-backface-visibility: visible;
+				transition: opacity 0.2s ease;
+				border-radius: 30px;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-dots .owl-dot.active span {
+				width: 15px;
+				border-radius: 5px;
+				opacity: 1;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav {
+				transition: all 0.3s ease;
+				opacity: 0;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-prev,
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-next {
+				position: absolute;
+				top: 43.5%;
+				max-width: 50px;
+				min-height: 50px;
+				width: 100%;
+				background-color: rgba(0, 0, 0, 0.3);
+				border-radius: 50%;
+				transition: all 0.3s ease;
+				font-size: 22px;
+				color: #fff;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-prev i,
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-next i {
+				-webkit-backface-visibility: visible;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-prev {
+				left: -15px;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-prev:hover {
+				background-color: rgba(0, 0, 0, 0.7);
+				}
+
+				@media screen and (max-width: 1024px) {
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-prev {
+					left: 10px;
+				}
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-next {
+				right: -15px;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-next:hover {
+				background-color: rgba(0, 0, 0, 0.7);
+				}
+
+				@media screen and (max-width: 1024px) {
+				.ova-apartments-slider .slide-apartments-slider .owl-nav .owl-next {
+					right: 10px;
+				}
+				}
+
+				/* Second .slide-apartments-slider block */
+				.ova-apartments-slider .slide-apartments-slider .owl-nav {
+				position: absolute;
+				width: 100%;
+				top: 50%;
+				transform: translateY(-50%);
+				margin: 0;
+				padding: 0 30px;
+				pointer-events: none;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav button {
+				pointer-events: all;
+				width: 50px;
+				height: 50px;
+				background: rgba(47, 47, 47, 0.8);
+				border-radius: 50%;
+				transition: all 0.3s ease;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav button:hover {
+				background: var(--e-global-color-primary);
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav button i {
+				color: #fafafa;
+				font-size: 20px;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav button.owl-prev {
+				float: left;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-nav button.owl-next {
+				float: right;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item {
+				position: relative;
+				overflow: hidden;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item:hover .apartments-slider-img img {
+				transform: scale(1.1);
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item:hover .client_info:before {
+				opacity: 0.9;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .apartments-slider-img img {
+				transition: all 0.3s ease;
+				height: 600px;
+				object-fit: cover;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info:before {
+				background: linear-gradient(180deg, rgba(47, 47, 47, 0) 0%, rgba(47, 47, 47, 0.8) 100%);
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info .info {
+				bottom: 60px;
+				padding: 0 60px;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info .info .title {
+				font-family: var(--primary-font);
+				margin-bottom: 10px;
+				}
+
+				.ova-apartments-slider .slide-apartments-slider .owl-item .item .client_info .info .sub-title {
+				font-family: var(--primary-font);
+				letter-spacing: 1px;
+				}
+
+				/* Fraction counter */
+				.ova-apartments-slider .fraction-counter {
+				position: absolute;
+				bottom: 30px;
+				right: 30px;
+				background: rgba(47, 47, 47, 0.8);
+				color: #fafafa;
+				padding: 8px 15px;
+				border-radius: 4px;
+				font-size: 14px;
+				font-weight: 500;
+				z-index: 2;
+				}
+
+				.ova-apartments-slider .fraction-counter .current {
+				color: var(--e-global-color-primary);
+				}
+
+			</style>
 		</section>
 		<?php
 	}

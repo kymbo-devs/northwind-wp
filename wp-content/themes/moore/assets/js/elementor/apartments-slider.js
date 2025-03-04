@@ -48,6 +48,8 @@
 		          '<i class="ovaicon-next" ></i>'
 		          ],
 		          responsive: responsive_value,
+		          onInitialized: counter,
+		          onTranslated: counter
 		        });
 
 		      	/* Fixed WCAG */
@@ -101,6 +103,8 @@
 		          '<i class="ovaicon-next" ></i>'
 		          ],
 		          responsive: responsive_value,
+		          onInitialized: counter,
+		          onTranslated: counter
 		        });
 
 		      	/* Fixed WCAG */
@@ -113,5 +117,18 @@
 
 
    });
+
+function counter(event) {
+    var element = event.target;
+    var items = event.item.count;
+    var item = event.item.index + 1;
+    
+    // Create fraction counter if it doesn't exist
+    if (!$(element).find('.fraction-counter').length) {
+        $(element).append('<div class="fraction-counter"><span class="current">' + item + '</span>/<span class="total">' + items + '</span></div>');
+    } else {
+        $(element).find('.fraction-counter .current').text(item);
+    }
+}
 
 })(jQuery);
