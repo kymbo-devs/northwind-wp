@@ -1,0 +1,143 @@
+// Common styles for both widgets
+.moore-apartment-fields-title,
+.moore-taxonomy-fields-title {
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 25px;
+    padding: 0;
+    line-height: 1.2;
+    color: var(--e-global-color-text, #2C3338);
+    transition: all 0.3s ease;
+}
+
+// Apartment Fields Styles
+.moore-apartment-fields-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px 30px;
+    margin-bottom: 35px;
+
+    .field-item {
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        background: #fff;
+        border: 1px solid var(--e-global-color-border, #E5E7EB);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+            border-color: var(--e-global-color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .field-icon {
+        margin-right: 15px;
+        color: var(--e-global-color-primary);
+        font-size: 20px;
+        width: 24px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .field-text {
+        color: var(--e-global-color-text);
+        font-size: 15px;
+        line-height: 1.5;
+        font-weight: 400;
+
+        strong {
+            color: var(--e-global-color-secondary);
+            font-weight: 500;
+            margin-right: 8px;
+        }
+    }
+}
+
+// Taxonomy Fields Styles
+.moore-taxonomy-fields-list {
+    margin: 0 0 35px;
+    padding: 0;
+    list-style: none;
+
+    .taxonomy-fields-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px 30px;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 35px;
+
+        .field-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: #fff;
+            border: 1px solid var(--e-global-color-border, #E5E7EB);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                border-color: var(--e-global-color-primary);
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+                .field-icon {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        .field-icon {
+            margin-right: 15px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .fa {
+                color: var(--e-global-color-primary);
+                font-size: 20px;
+            }
+        }
+
+        .field-text {
+            color: var(--e-global-color-text);
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+    }
+}
+
+// Responsive styles
+@media (max-width: 767px) {
+    .moore-apartment-fields-list,
+    .moore-taxonomy-fields-list .taxonomy-fields-grid {
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+    }
+
+    .moore-apartment-fields-title,
+    .moore-taxonomy-fields-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .field-item {
+        padding: 12px 15px;
+    }
+}

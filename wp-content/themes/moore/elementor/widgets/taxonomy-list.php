@@ -186,25 +186,6 @@ class Moore_Elementor_Apartment_Fields extends Widget_Base {
 
         // Close the container
         echo '</div>';
-
-        // 5) Add some quick inline CSS for 2 columns (adjust as needed)
-        ?>
-        <style>
-            .moore-apartment-fields-list {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                grid-gap: 15px 30px; /* row gap x column gap */
-            }
-            .moore-apartment-fields-list .field-item {
-                display: flex;
-                align-items: center;
-            }
-            .moore-apartment-fields-list .field-icon {
-                margin-right: 8px;
-                font-size: 20px; /* Adjust for Dashicons or your icon size */
-            }
-        </style>
-        <?php
     }
 }
 
@@ -369,44 +350,6 @@ class Moore_Elementor_Post_Taxonomies extends Widget_Base {
     }
 
     echo '</ul>';
-
-    // Updated styles to match apartment fields with ULs
-    ?>
-    <style>
-        .moore-taxonomy-fields-list {
-            margin-bottom: 30px;
-            list-style: none;
-            padding: 0;
-        }
-        .taxonomy-fields-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 15px 30px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .moore-taxonomy-fields-list .field-item {
-            display: flex;
-            align-items: center;
-        }
-        .moore-taxonomy-fields-list .field-icon {
-            margin-right: 8px;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-        }
-        .moore-taxonomy-fields-list .field-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        .moore-taxonomy-fields-list .field-icon .dashicons {
-            font-size: 20px;
-        }
-    </style>
-    <?php
 	}
 }
 
