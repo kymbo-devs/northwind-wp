@@ -21,7 +21,7 @@
 
 		            },
 		            992:{
-		              items:2
+		              items:1
 		            },
 		            1170:{
 		              items:owlsl_ops.items

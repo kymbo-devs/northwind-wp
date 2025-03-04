@@ -9117,6 +9117,24 @@ form.checkout_coupon .form-row {
 }
 .ova-rooms-filter .results-filter {
   margin-bottom: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1280px;
+}
+.results-filter .ova-box-feature2 {
+  width: 45%;
+}
+.results-filter .ova-box-feature2 .img {
+    max-height: 380px;
+    min-height: 380px;
+}
+@media only screen and (max-width: 600px) {
+  .results-filter .ova-box-feature2 {
+    width: 100%;
+  }
 }
 .ova-rooms-filter .results-filter .room {
   cursor: pointer;

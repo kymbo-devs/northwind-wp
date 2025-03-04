@@ -1,0 +1,655 @@
+[03-Mar-2025 20:39:43 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 474
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 46731
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+)
+
+[03-Mar-2025 20:39:43 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 474
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 46731
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+)
+
+[03-Mar-2025 20:39:43 UTC] DEBUG: Query found 86 posts
+[03-Mar-2025 20:39:43 UTC] DEBUG: Query found 86 posts
+[03-Mar-2025 20:39:48 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 334
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 46731
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+)
+
+[03-Mar-2025 20:39:48 UTC] DEBUG: Query found 72 posts
+[03-Mar-2025 20:39:54 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 334
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 336943
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+)
+
+[03-Mar-2025 20:39:54 UTC] DEBUG: Query found 72 posts
+[03-Mar-2025 22:13:15 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 12522
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 1754501
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+)
+
+[03-Mar-2025 22:13:15 UTC] DEBUG: Query found 101 posts
+[03-Mar-2025 22:13:20 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 7655
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 1754501
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+)
+
+[03-Mar-2025 22:13:20 UTC] DEBUG: Query found 101 posts
+[03-Mar-2025 22:13:22 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 18700
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 1754501
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+)
+
+[03-Mar-2025 22:13:22 UTC] DEBUG: Query found 101 posts
+[03-Mar-2025 22:13:49 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 353
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 1754501
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+    [tax_query] => Array
+        (
+            [0] => Array
+                (
+                    [taxonomy] => category
+                    [field] => term_id
+                    [terms] => 111
+                )
+
+        )
+
+)
+
+[03-Mar-2025 22:13:49 UTC] DEBUG: Query found 8 posts
+[03-Mar-2025 22:13:58 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 1754501
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+    [tax_query] => Array
+        (
+            [0] => Array
+                (
+                    [taxonomy] => category
+                    [field] => term_id
+                    [terms] => 111
+                )
+
+        )
+
+)
+
+[03-Mar-2025 22:13:58 UTC] DEBUG: Query found 18 posts
+[03-Mar-2025 22:41:09 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 200
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 200
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+    [tax_query] => Array
+        (
+            [0] => Array
+                (
+                    [taxonomy] => features_apartment
+                    [field] => slug
+                    [terms] => 1-600-m2-de-parcela
+                )
+
+        )
+
+)
+
+[03-Mar-2025 22:41:09 UTC] DEBUG: Query found 0 posts
+[03-Mar-2025 22:50:58 UTC] Error de evento de reprogramación de cron para el hook: litespeed_task_imgoptm_pull. Código de error: could_not_set. Mensaje de error: No se ha podido guardar la lista de eventos del cron.. Datos: {"schedule":"litespeed_filter","args":[],"interval":60}
+[04-Mar-2025 02:45:41 UTC] Automatic updates starting...
+[04-Mar-2025 02:45:42 UTC]   Automatic plugin updates starting...
+[04-Mar-2025 02:45:42 UTC]   Automatic plugin updates complete.
+[04-Mar-2025 02:45:42 UTC] Automatic updates complete.
+[04-Mar-2025 03:35:06 UTC] DEBUG: args for query: Array
+(
+    [post_type] => ova_apartments
+    [posts_per_page] => 6
+    [orderby] => name
+    [order] => ASC
+    [paged] => 2
+    [meta_query] => Array
+        (
+            [relation] => AND
+            [0] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_tamano
+                            [value] => 474
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [relation] => AND
+                    [0] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 0
+                            [type] => NUMERIC
+                            [compare] => >=
+                        )
+
+                    [1] => Array
+                        (
+                            [key] => ova_apartment_precio
+                            [value] => 1320000
+                            [type] => NUMERIC
+                            [compare] => <=
+                        )
+
+                )
+
+        )
+
+    [tax_query] => Array
+        (
+            [0] => Array
+                (
+                    [taxonomy] => category
+                    [field] => term_id
+                    [terms] => 37
+                )
+
+        )
+
+)
+
+[04-Mar-2025 03:35:06 UTC] DEBUG: Query found 22 posts

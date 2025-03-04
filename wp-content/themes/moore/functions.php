@@ -22,6 +22,7 @@
 	// Ajax
 	require_once (MOORE_URL.'/inc/class-ajax.php');
     require_once (MOORE_URL.'/inc/class-ajax-filter.php');
+    require_once (MOORE_URL.'/inc/class-ajax-apartment-filter.php');
 	// Elementor
 	if (defined('ELEMENTOR_VERSION')) {
 		require_once (MOORE_URL.'/inc/class-elementor.php');

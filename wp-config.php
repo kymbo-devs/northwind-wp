@@ -1,5 +1,6 @@
 <?php
-define( 'WP_CACHE', true );
+
+
 /**
  * The base configuration for WordPress
  *
@@ -89,8 +90,11 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 if ( ! defined( 'WP_DEBUG' ) ) {
-	define( 'WP_DEBUG', false );
+	define( 'WP_DEBUG', true );
 }
+
+// Enable Debug logging to the /wp-content/debug.log file
+define( 'WP_DEBUG_LOG', true );
 
 define( 'FS_METHOD', 'direct' );
 define( 'COOKIEHASH', 'a4b90448f03094f3c310cd7e026cde1d' );

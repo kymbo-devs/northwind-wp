@@ -498,6 +498,12 @@ if( !class_exists( 'OVA_Apartments_custom_post_type' ) ) {
 				'id'         => $prefix . 'ano_edificacion',
 				'type'       => 'text',
 			));
+			
+			$cmb->add_field(array(
+				'name'       => esc_html__('Iframe mapa', 'ova-framework'),
+				'id'         => $prefix . 'iframe_mapa',
+				'type'       => 'textarea_code',
+		    ));
 
 			$cmb->add_field(array(
 				'name'       => esc_html__('Rooms', 'ova-framework'),
