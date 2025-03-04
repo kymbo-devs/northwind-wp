@@ -92,7 +92,7 @@
 		          autoplayTimeout: owlsl_ops.autoplayTimeout,
 		          center: owlsl_ops.center,
 		          nav: owlsl_ops.nav,
-		          dots: owlsl_ops.dots,
+		          dots: false,
 		          thumbs: owlsl_ops.thumbs,
 		          autoplayHoverPause: owlsl_ops.autoplayHoverPause,
 		          slideBy: owlsl_ops.slideBy,
@@ -123,8 +123,7 @@ function counter(event) {
     var items = event.item.count;
     var item = event.item.index + 1;
     
-    // Create fraction counter if it doesn't exist
-    if (!$(element).find('.fraction-counter').length) {
+    if ($(element).find('.fraction-counter').length === 0) {
         $(element).append('<div class="fraction-counter"><span class="current">' + item + '</span>/<span class="total">' + items + '</span></div>');
     } else {
         $(element).find('.fraction-counter .current').text(item);
