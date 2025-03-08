@@ -7259,9 +7259,9 @@ form.checkout_coupon .form-row {
   position: relative;
   color: var(--heading);
   margin: 0 auto;
-  width: max-content;
+  width: 100%;
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 33px;
   padding-top: 33px;
   padding-bottom: 8px;
@@ -7445,6 +7445,8 @@ form.checkout_coupon .form-row {
 .ova-apartments-masonry .grid .grid-item .apartments {
   position: relative;
   overflow: hidden;
+	min-height: 250px;
+	max-height: 250px;
 }
 .ova-apartments-masonry .grid .grid-item .apartments img {
   transition: all 0.3s ease;
@@ -7526,6 +7528,8 @@ form.checkout_coupon .form-row {
   -moz-transform: scale(1.2, 1.2);
   -o-transform: scale(1.2, 1.2);
   -ms-transform: scale(1.2, 1.2);
+	min-height: 250px;
+	object-fit: cover;
 }
 .ova-apartments-masonry .grid .grid-item-fisrt {
   width: 33.3%;
@@ -8870,12 +8874,14 @@ form.checkout_coupon .form-row {
 }
 .ova-rooms-filter #rooms-filter .select-filter {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 24px;
+  justify-items: center;
+  align-items: center;
 }
 @media screen and (max-width: 1024px) {
   .ova-rooms-filter #rooms-filter .select-filter {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 @media screen and (max-width: 767px) {
@@ -9094,7 +9100,30 @@ form.checkout_coupon .form-row {
     left: calc(50% - 80px);
   }
 }
-.ova-rooms-filter #rooms-filter .option-filter .clear-filter:hover input[type=button] {
+.ova-rooms-filter #rooms-filter .option-filter .clear-filter:hover a {
+  transition: all 0.3s ease;
+  color: #fafafa;
+  background-color: var(--heading);
+}
+.ova-rooms-filter #rooms-filter .select-filter .new-filter {
+  color: var(--heading);
+  background-color: #f2f3f5;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 24px;
+  border: unset;
+  width: 100%;
+	text-align: center;
+  padding: 13px;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .ova-rooms-filter #rooms-filter .select-filter .new-filter {
+	 width: 100%;
+  }
+}
+.ova-rooms-filter #rooms-filter .select-filter .new-filter:hover {
   transition: all 0.3s ease;
   color: #fafafa;
   background-color: var(--heading);
@@ -9120,21 +9149,39 @@ form.checkout_coupon .form-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
+  gap: 36px;
   width: 100%;
   max-width: 1280px;
 }
 .results-filter .ova-box-feature2 {
   width: 45%;
 }
-.results-filter .ova-box-feature2 .img {
-    max-height: 380px;
-    min-height: 380px;
+.results-filter .ova-box-feature2 .img{
+	min-height: 387px;
+	max-height: 387px;
+}
+.results-filter .ova-box-feature2 .img img{
+	min-height: 387px;
+	max-height: 387px;
+	object-fit: cover;
 }
 @media only screen and (max-width: 600px) {
   .results-filter .ova-box-feature2 {
-    width: 100%;
+    width: 90%;
+	margin: auto;
   }
+	.results-filter .ova-box-feature2 .img{
+		min-height: 369px;
+		max-height: 369px;
+	}
+	.results-filter .ova-box-feature2 .img img{
+		min-height: 369px;
+		max-height: 369px;
+	}
+	.ova-box-feature2 .info .title {
+		font-size: 18px;
+		line-height: 22px;
+	}
 }
 .ova-rooms-filter .results-filter .room {
   cursor: pointer;

@@ -177,16 +177,6 @@ class Moore_Elementor_Apartments_And_Filters extends Widget_Base
             }
         }
 
-        // Get list regimens - use the same args to filter by category
-        $regimens = array();
-        $all_apartments = get_posts($location_args);
-        foreach ($all_apartments as $apartment) {
-            $regimen = get_post_meta($apartment->ID, 'ova_apartment_regimen', true);
-            if (!empty($regimen) && !in_array($regimen, $regimens)) {
-                $regimens[] = $regimen;
-            }
-        }
-
         // Get features
         $features_args = array(
             'taxonomy' => 'features_apartment',
@@ -237,15 +227,6 @@ class Moore_Elementor_Apartments_And_Filters extends Widget_Base
 					<input type="hidden" name="current_category" value="<?php echo esc_attr( $current_category->term_id ); ?>">
 				<?php endif; ?>
 				<div class="select-filter">
-                    <select name="regimen" id="regimen">
-                        <option value="all"><?php esc_html_e('Régimen', 'moore'); ?></option>
-                        <?php foreach ($regimens as $regimen): ?>
-                            <option value="<?php echo esc_attr($regimen); ?>">
-                                <?php echo esc_html($regimen); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-
                     <select name="location" id="location">
                         <option value="all"><?php esc_html_e('Localización', 'moore'); ?></option>
                         <?php foreach ($unique_locations as $location): ?>
@@ -263,6 +244,10 @@ class Moore_Elementor_Apartments_And_Filters extends Widget_Base
                             </option>
                         <?php endforeach; ?>
                     </select>
+					
+					<a href="/operaciones-finalizadas" class="new-filter" id="new-filter">
+						Operaciones finalizadas
+                    </a>
                 </div>
 
                 <div class="option-filter">

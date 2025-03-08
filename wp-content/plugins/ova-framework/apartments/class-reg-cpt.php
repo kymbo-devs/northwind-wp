@@ -216,60 +216,84 @@ if( !class_exists( 'OVA_Apartments_custom_post_type' ) ) {
 
 			<script>
 			jQuery(document).ready(function($) {
-				var frame;
-				var $galleryBox = $('.apartment-gallery-box');
-				var $galleryIds = $('#apartment_gallery_ids');
-				var $preview = $galleryBox.find('.gallery-preview');
-				var $button = $('#apartment_gallery_button');
+    var frame;
+    var $galleryBox = $('.apartment-gallery-box');
+    var $galleryIds = $('#apartment_gallery_ids');
+    var $preview = $galleryBox.find('.gallery-preview');
+    var $button = $('#apartment_gallery_button');
 
-				function updateGallery() {
-					var ids = [];
-					$preview.find('.gallery-image').each(function() {
-						ids.push($(this).data('id'));
-					});
-					$galleryIds.val(ids.join(','));
-					$button.toggleClass('button-primary', ids.length === 0);
-					$button.text(ids.length === 0 ? '<?php _e("Add Gallery", "ova-framework"); ?>' : '<?php _e("Edit Gallery", "ova-framework"); ?>');
-				}
+    // Initialize jQuery UI sortable on the gallery preview
+    $preview.sortable({
+        items: '.gallery-image',
+        update: function(event, ui) {
+            updateGallery();
+        }
+    });
 
-				$button.on('click', function(e) {
-					e.preventDefault();
+    function updateGallery() {
+        var ids = [];
+        $preview.find('.gallery-image').each(function() {
+            ids.push($(this).data('id'));
+        });
+        $galleryIds.val(ids.join(','));
+        $button.toggleClass('button-primary', ids.length === 0);
+        $button.text(ids.length === 0 ? 'Add Gallery' : 'Edit Gallery');
+    }
 
-					if (frame) {
-						frame.open();
-						return;
-					}
+    $button.on('click', function(e) {
+        e.preventDefault();
 
-					frame = wp.media({
-						state: 'gallery-edit',
-						frame: 'post',
-						multiple: true,
-						selection: new wp.media.model.Selection($galleryIds.val().split(','), {
-							multiple: true
-						})
-					});
+        // If the frame is already created, reopen it.
+        if (frame) {
+            frame.open();
+            return;
+        }
 
-					frame.on('update', function(selection) {
-						var preview = '';
-						selection.each(function(attachment) {
-							preview += '<div class="gallery-image" data-id="' + attachment.id + '">';
-							preview += '<img src="' + attachment.get('sizes').thumbnail.url + '" alt="">';
-							preview += '<button type="button" class="remove-image dashicons dashicons-no-alt"></button>';
-							preview += '</div>';
-						});
-						$preview.html(preview);
-						updateGallery();
-					});
+        // Get the current gallery IDs and build an ordered selection array.
+        var currentIds = $galleryIds.val().split(',').filter(function(id) {
+            return id !== '';
+        });
+        var attachments = [];
+        if (currentIds.length) {
+            $.each(currentIds, function(index, id) {
+                attachments.push(wp.media.attachment(id));
+            });
+        }
 
-					frame.open();
-				});
+        // Create the media frame with the gallery-edit state and ordered selection.
+        frame = wp.media({
+            title: 'Edit Gallery',
+            library: { type: 'image' },
+            frame: 'post',
+            multiple: true,
+            state: 'gallery-edit',
+            selection: new wp.media.model.Selection(attachments)
+        });
 
-				$preview.on('click', '.remove-image', function(e) {
-					e.preventDefault();
-					$(this).closest('.gallery-image').remove();
-					updateGallery();
-				});
-			});
+        frame.on('update', function(selection) {
+            var preview = '';
+            selection.each(function(attachment) {
+                preview += '<div class="gallery-image" data-id="' + attachment.id + '">';
+                preview += '<img src="' + attachment.get('sizes').thumbnail.url + '" alt="">';
+                preview += '<button type="button" class="remove-image dashicons dashicons-no-alt"></button>';
+                preview += '</div>';
+            });
+            $preview.html(preview);
+            // Refresh sortable so new items are draggable
+            $preview.sortable('refresh');
+            updateGallery();
+        });
+
+        frame.open();
+    });
+
+    // Remove image button handler.
+    $preview.on('click', '.remove-image', function(e) {
+        e.preventDefault();
+        $(this).closest('.gallery-image').remove();
+        updateGallery();
+    });
+});
 			</script>
 			<?php
 		}
@@ -561,25 +585,25 @@ if( !class_exists( 'OVA_Apartments_custom_post_type' ) ) {
 			));
 
 			$cmb_category->add_field(array(
-				'name'    => esc_html__('Category Icon', 'ova-framework'),
-				'desc'    => esc_html__('Upload an icon for this category', 'ova-framework'),
-				'id'      => $category_prefix . 'icon',
-				'type'    => 'file',
-				'options' => array(
-					'url' => false,
-				),
-				'text'    => array(
-					'add_upload_file_text' => 'Add Icon'
-				),
-				'query_args' => array(
-					'type' => array(
-						'image/gif',
-						'image/jpeg',
-						'image/png',
-					),
-				),
-				'preview_size' => 'thumbnail',
-			));
+                'name'         => esc_html__('Category Featured Image', 'ova-framework'),
+                'desc'         => esc_html__('Upload a featured image for this category', 'ova-framework'),
+                'id'           => $category_prefix . 'featured_image',
+                'type'         => 'file',
+                'options'      => array(
+                    'url' => false,
+                ),
+                'text'         => array(
+                    'add_upload_file_text' => 'Add Featured Image'
+                ),
+                'query_args'   => array(
+                    'type' => array(
+                        'image/gif',
+                        'image/jpeg',
+                        'image/png',
+                    ),
+                ),
+                'preview_size' => 'medium',
+            ));
 		}
 	}
 

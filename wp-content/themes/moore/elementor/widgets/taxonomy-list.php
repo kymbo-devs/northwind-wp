@@ -6,6 +6,86 @@ use Elementor\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+class Moore_Elementor_Map_Widget extends Widget_Base {
+
+	// Widget name
+	public function get_name() {
+		return 'ova_map_widget';
+	}
+
+	// Widget title
+	public function get_title() {
+		return __( 'OVA Map Widget', 'moore' );
+	}
+
+	// Widget icon in Elementor panel
+	public function get_icon() {
+		return 'eicon-map-pin';
+	}
+
+	// Widget category – adjust as needed
+	public function get_categories() {
+		return [ 'general' ];
+	}
+
+	/**
+	 * Register widget controls.
+	 *
+	 * In this case we are not using any controls for the iframe,
+	 * since the iframe is always loaded from the current post meta.
+	 */
+	protected function register_controls() {
+		$this->start_controls_section(
+			'section_content',
+			[
+				'label' => __( 'Content', 'moore' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+		// No controls are needed for the map iframe.
+		$this->end_controls_section();
+	}
+
+	/**
+	 * Render the widget output on the frontend.
+	 */
+	protected function render() {
+		global $post;
+		$iframe = '';
+
+		// Retrieve the iframe from the current post's meta field.
+		if ( isset( $post->ID ) ) {
+			$iframe = get_post_meta( $post->ID, 'ova_apartment_iframe_mapa', true );
+		}
+
+		// Output the iframe HTML if available.
+		if ( ! empty( $iframe ) ) {
+			echo '<div class="ova-map-widget">';
+				echo $iframe;
+			echo '</div>';
+		}
+	}
+
+	/**
+	 * Render widget output in the Elementor editor.
+	 *
+	 * Since post meta may not be available in editor preview,
+	 * we show a simple placeholder message.
+	 */
+	protected function content_template() {
+		?>
+		<#
+		// In the editor, we cannot reliably retrieve post meta.
+		print( '<div class="ova-map-widget"><?php _e( "Map will be loaded from post meta on the live page.", "moore" ); ?></div>' );
+		#>
+		<?php
+	}
+}
+
+// Finally, register the widget
+$widgets_manager->register( new Moore_Elementor_Map_Widget() );
+
+
 class Moore_Elementor_Apartment_Fields extends Widget_Base {
 
     public function get_name() {
@@ -97,16 +177,6 @@ class Moore_Elementor_Apartment_Fields extends Widget_Base {
 				'meta_key' => 'ova_apartment_area',
 				'label'    => esc_html__( 'Área (m²)', 'moore' ),
 				'icon'     => 'fa fa-arrows-alt',
-			],
-			[
-				'meta_key' => 'ova_apartment_price',
-				'label'    => esc_html__( 'Precio (M)', 'moore' ),
-				'icon'     => 'fa fa-money',
-			],
-			[
-				'meta_key' => 'ova_apartment_total',
-				'label'    => esc_html__( 'Total ($)', 'moore' ),
-				'icon'     => 'fa fa-dollar',
 			],
 			[
 				'meta_key' => 'ova_apartment_date',
@@ -373,17 +443,16 @@ class Moore_Elementor_Post_Taxonomies extends Widget_Base {
     // Updated styles to match apartment fields with ULs
     ?>
     <style>
-        /* Common Widget Styles */
+        /* Common Widget Styles
         .moore-apartment-fields-title,
         .moore-taxonomy-fields-title {
             color: #2c3338;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
             font-size: 18px;
             font-weight: 600;
             margin: 0 0 20px;
             padding: 0;
             line-height: 1.3;
-        }
+        }*/
 
         /* Apartment Fields Grid */
         .moore-apartment-fields-list {
@@ -398,32 +467,30 @@ class Moore_Elementor_Post_Taxonomies extends Widget_Base {
             align-items: center;
             padding: 12px 15px;
             background: #fff;
-            border: 1px solid #dcdcde;
+            border: 1px solid #2f2f2f;
             border-radius: 4px;
             transition: all 0.2s ease-in-out;
         }
 
         .moore-apartment-fields-list .field-item:hover {
-            border-color: #2271b1;
+            border-color: #000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .moore-apartment-fields-list .field-icon {
             margin-right: 12px;
-            color: #606a73;
-            font-size: 18px;
+            color: #2f2f2f;
             width: 24px;
             text-align: center;
         }
 
         .moore-apartment-fields-list .field-text {
-            color: #50575e;
-            font-size: 14px;
+            color: #000;
             line-height: 1.4;
         }
 
         .moore-apartment-fields-list .field-text strong {
-            color: #2c3338;
+            color: #000;
             font-weight: 600;
             margin-right: 5px;
         }
@@ -455,7 +522,7 @@ class Moore_Elementor_Post_Taxonomies extends Widget_Base {
         }
 
         .taxonomy-fields-grid .field-item:hover {
-            border-color: #2271b1;
+            border-color: #000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
@@ -475,12 +542,12 @@ class Moore_Elementor_Post_Taxonomies extends Widget_Base {
         }
 
         .taxonomy-fields-grid .field-icon .fa {
-            color: #606a73;
+            color: #000;
             font-size: 18px;
         }
 
         .taxonomy-fields-grid .field-text {
-            color: #50575e;
+            color: #2f2f2f;
             font-size: 14px;
             line-height: 1.4;
         }

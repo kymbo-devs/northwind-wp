@@ -406,62 +406,96 @@ class Moore_Elementor_Apartments_Masonry extends Widget_Base {
 
 	// Render Template Here
 	protected function render() {
-
-		$settings 	= $this->get_settings();
-
-		// Get list item
-		$tabs 		= $settings['tab_item'];
-
-		?>
-
-		<?php if ( $tabs && is_array( $tabs ) ): ?>
-	        <div class="ova-apartments-masonry">
-	        	<div class="grid">
-	        		<div class="grid-sizer"></div>
-	  				<?php foreach ( $tabs as $key => $items ): 
-	  					$img_url 	= $items['image']['url'];
-	  					$img_alt 	= isset( $items['image']['alt'] ) ? $items['image']['alt'] : $items['title'];
-	  					$item_id 	= 'elementor-repeater-item-' . $items['_id'];
-	  					$link       = $items['link'];
-	  					$title 		= $items['title'];
-	  					$sub_title	= $items['sub_title'];
-
-	  				?>
-					<?php if ( $link['url'] != '') : ?>
-					<?php $nofollow = ( isset( $link['nofollow'] ) && $link['nofollow'] ) ? ' rel="nofollow"' : ''; ?>
-					<a href="<?php echo esc_url( $link['url'] ); ?> " <?php echo ( isset( $link['is_external'] ) && $link['is_external'] !== '' ) ? ' target="_blank"' : '' ?>  <?php echo esc_attr( $nofollow ); ?>>
-					<?php endif; ?>
-
-	  					<div class="grid-item <?php echo esc_attr( $item_id ); ?><?php if ( 0 == $key ) echo esc_attr(' grid-item-fisrt'); ?>">
-	  						<div class="apartments">
-
-	  							<img src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $img_alt ); ?>">
-	  							<div class="apartments-container">
-		  							
-		  							<div class="content">
-			  							<?php if ( $title ): ?>
-			  								<h2 class="title"><?php echo esc_html( $title ); ?></h2>
-			  							<?php endif; ?>
-			  							<?php if ( $sub_title ): ?>
-			  								<p class="sub-title"><?php echo esc_html( $sub_title ); ?></p>
-			  							<?php endif; ?>
-			  						</div>
-		  						</div>
-							</div>
-	  					</div>
-
-					<?php if ( $link['url'] != '' ) : ?>
-					</a>
-					<?php endif; ?>
-
-	  				<?php endforeach; ?>
-	        	</div>
-
-			</div>
-		<?php
-		endif;
-	}
-
+    // Get the current apartment post ID.
+    $current_post_id = get_the_ID();
+    
+    // Retrieve categories for the current post.
+    $categories = get_the_category( $current_post_id );
+    if ( empty( $categories ) ) {
+        return; // No category assigned – nothing to query.
+    }
+    
+    // Collect category IDs.
+    $category_ids = array();
+    foreach ( $categories as $cat ) {
+        $category_ids[] = $cat->term_id;
+    }
+    
+    // Query for 3 random apartments in the same categories (excluding the current post).
+    $args = array(
+        'post_type'      => 'ova_apartments',
+        'posts_per_page' => 3,
+        'orderby'        => 'rand',
+        'post__not_in'   => array( $current_post_id ),
+        'tax_query'      => array(
+            array(
+                'taxonomy' => 'category',
+                'field'    => 'term_id',
+                'terms'    => $category_ids,
+            ),
+        ),
+    );
+    $apartments_query = new WP_Query( $args );
+    
+    if ( $apartments_query->have_posts() ) {
+        ?>
+        <div class="ova-apartments-masonry">
+            <div class="grid">
+                <div class="grid-sizer"></div>
+                <?php
+                while ( $apartments_query->have_posts() ) {
+                    $apartments_query->the_post();
+                    $post_id   = get_the_ID();
+                    $title     = get_the_title();
+                    $permalink = get_permalink();
+                    
+                    // Retrieve meta fields for the subtitle.
+                    $precio   = get_post_meta( $post_id, 'ova_apartment_precio', true );
+                    $tamano   = get_post_meta( $post_id, 'ova_apartment_tamano', true );
+                    $location = get_post_meta( $post_id, 'ova_apartment_location', true );
+                    
+                    // Build the subtitle string "PRECIO | TAMANO | LOCATION".
+                    $subtitle_parts = array_filter( array( $precio, $tamano, $location ) );
+                    $subtitle = implode( ' | ', $subtitle_parts );
+                    
+                    // Get the first image:
+                    // First try to get the gallery IDs from custom meta, similar to your slider widget.
+                    $first_image_url = '';
+                    $gallery_ids = get_post_meta( $post_id, 'apartment_gallery_ids', true );
+                    if ( ! empty( $gallery_ids ) ) {
+                        $ids = explode( ',', $gallery_ids );
+                        $first_image_id = reset( $ids );
+                        $first_image_url = wp_get_attachment_url( $first_image_id );
+                    }
+                    // Fallback: try to use the featured image.
+                    if ( empty( $first_image_url ) ) {
+                        $first_image_url = get_the_post_thumbnail_url( $post_id, 'full' );
+                    }
+                    ?>
+                    <a href="<?php echo esc_url( $permalink ); ?>">
+                        <div class="grid-item">
+                            <div class="apartments">
+                                <?php if ( $first_image_url ) : ?>
+                                    <img src="<?php echo esc_url( $first_image_url ); ?>" alt="<?php echo esc_attr( $title ); ?>">
+                                <?php endif; ?>
+                                <div class="apartments-container">
+                                    <div class="content">
+                                        <h2 class="title"><?php echo esc_html( $title ); ?></h2>
+                                        <p class="sub-title"><?php echo esc_html( $subtitle ); ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <?php
+                }
+                wp_reset_postdata();
+                ?>
+            </div>
+        </div>
+        <?php
+    }
+}
 	
 }
 $widgets_manager->register( new Moore_Elementor_Apartments_Masonry() );

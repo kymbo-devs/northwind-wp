@@ -164,7 +164,6 @@
                var post_per_page  =  form. closest('.ova-rooms-filter').find('.button-loadmore').data('post_per_page');
 			   var current_category = form.find('input[name="current_category"]').val();
                var location      =  form.find('select[name="location"]').val();
-               var regimen       =  form.find('select[name="regimen"]').val();
                var features_room  =  form.find('select[name="features"]').val();
                // get options filter area 
                var area_value_start  = form.find('#range-area-start').val();
@@ -184,7 +183,6 @@
                      action: 'load_apartment_filter',
                      post_per_page: post_per_page,
                      location: location,
-                     regimen: regimen,
                      paged : paged,
                      features_room : features_room,
                      area_value_start : area_value_start,

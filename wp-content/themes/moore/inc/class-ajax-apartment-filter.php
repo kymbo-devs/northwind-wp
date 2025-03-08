@@ -16,7 +16,6 @@ if( !class_exists( 'Moore_Ajax_Apartment_Filter' ) ){
             // Default paged to 1 if not provided
             $paged = isset( $_POST['paged'] ) ? sanitize_text_field( $_POST['paged'] ) : 1;
             $location = isset( $_POST['location'] ) ? sanitize_text_field( $_POST['location'] ) : 'all';
-            $regimen = isset( $_POST['regimen'] ) ? sanitize_text_field( $_POST['regimen'] ) : 'all';
             $features = isset( $_POST['features_room'] ) ? sanitize_text_field( $_POST['features_room'] ) : 'all';
 
             // Clean the area values received (e.g. "474 m²" becomes 474)
@@ -51,15 +50,6 @@ if( !class_exists( 'Moore_Ajax_Apartment_Filter' ) ){
                 $meta_query[] = array(
                     'key'     => 'ova_apartment_location',
                     'value'   => $location,
-                    'compare' => '='
-                );
-            }
-
-            // Regimen filter
-            if ( $regimen !== 'all' ) {
-                $meta_query[] = array(
-                    'key'     => 'ova_apartment_regimen',
-                    'value'   => $regimen,
                     'compare' => '='
                 );
             }
